@@ -1,0 +1,20 @@
+---
+import { Card, CardDescription, CardTitle } from "./ui/card";
+---
+
+<Card
+  className="flex flex-col w-11/12 md:w-1/2 p-5 md:p-10 gap-10 border border-red "
+>
+  <img
+    src="/Picture.jpg"
+    class="object-cover object-left rounded-md aspect-square max-w-none"
+  />
+  <div class="flex flex-col gap-2">
+    <CardTitle> About me </CardTitle>
+    <CardDescription>
+      I'm a Chulalongkorn University student interested in system programming,
+      backend development, and embedded systems. Currently exploring Rust and
+      Go. I enjoy solving challenges and improving my skills.
+    </CardDescription>
+  </div>
+</Card>
