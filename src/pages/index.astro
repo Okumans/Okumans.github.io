@@ -4,6 +4,7 @@ import ProfileCardLarge from "@/components/profile-card-large.astro";
 import ProfileCardSmall from "@/components/profile-card-small.astro";
 import { ContactCard, ContactCardWithLink } from "@/components/contact-card";
 import ProjectCard from "@/components/project-card.astro";
+import LanguageCard from "@/components/language-card.astro";
 import { Toaster } from "@/components/ui/sonner";
 
 import { FaGithub } from "react-icons/fa";
@@ -14,7 +15,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 <Layout title="Jeerabhat S.">
   <div class="relative z-10 h-screen bg-black bg-opacity-20">
-    <main class="relative w-full px-6 sm:px-14 flex flex-col gap-10">
+    <main class="relative w-full px-6 sm:px-14 flex flex-col gap-20">
       <div
         class="flex w-full text-center lg:text-left h-screen items-center lg:justify-center"
       >
@@ -82,6 +83,51 @@ import { FaPhoneAlt } from "react-icons/fa";
       </div>
 
       <div class="flex flex-col gap-3">
+        <h1 class="text-2xl font-semibold">Programing language</h1>
+        <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+          <LanguageCard src="/Language-C.svg" alt="Language-C" title="C" />
+          <LanguageCard
+            src="/Language-Cpp.png"
+            alt="Language-C++"
+            title="C++"
+          />
+
+          <LanguageCard
+            src="/Language-Rust.png"
+            alt="Language-Rust"
+            title="Rust"
+          />
+
+          <LanguageCard
+            src="/Language-Python.svg"
+            alt="Language-Python"
+            title="Python"
+          />
+
+          <LanguageCard
+            src="/Language-JavaScript.png"
+            alt="Language-JavaScript"
+            title="JavaScript"
+          />
+
+          <LanguageCard
+            src="/Language-TypeScript.svg"
+            alt="Language-TypeScript"
+            title="TypeScript"
+          />
+
+          <!-- i'm learning it na. -->
+          <LanguageCard
+            src="/Language-Go.svg"
+            alt="Language-Go"
+            title="Go"
+            className="hidden md:flex"
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3">
         <h1 class="text-2xl font-semibold">Projects</h1>
         <ProjectCard
           title="FaceRec"
@@ -90,7 +136,7 @@ import { FaPhoneAlt } from "react-icons/fa";
           imageSrc="/Project-FaceRec.png"
           imageWidth={41}
           imageHeight={18}
-          altText="Project-FaceRec-Example"
+          alt="Project-FaceRec-Example"
         />
 
         <ProjectCard
@@ -100,7 +146,7 @@ import { FaPhoneAlt } from "react-icons/fa";
           imageSrc="/Project-MathForFun.png"
           imageWidth={32}
           imageHeight={17}
-          altText="Project-MathForFun-Example"
+          alt="Project-MathForFun-Example"
         />
 
         <ProjectCard
@@ -109,7 +155,7 @@ import { FaPhoneAlt } from "react-icons/fa";
           imageSrc="/Project-Calculator.png"
           imageWidth={10}
           imageHeight={10}
-          altText="Project-Calculator-Example"
+          alt="Project-Calculator-Example"
           href="https://github.com/Okumans/CalculatorCppTUI"
         />
 
@@ -119,7 +165,7 @@ import { FaPhoneAlt } from "react-icons/fa";
           imageSrc="/Project-Erunner.png"
           imageWidth={10}
           imageHeight={10}
-          altText="Project-EasyRunner-Example"
+          alt="Project-EasyRunner-Example"
           href="https://github.com/Okumans/EasyRunner"
         />
 

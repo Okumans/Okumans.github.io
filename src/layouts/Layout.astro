@@ -3,11 +3,19 @@ import "../styles/globals.css";
 import { NavBar } from "@/components/navbar";
 import { AsciiCanvas } from "@/components/ascii-canvas";
 
-interface Props {
-  title: string;
+interface AsciiCanvasConfig {
+  fontSize: number;
+  spawnRate: number;
+  speedRange: [number, number];
+  hueRange: [number, number];
 }
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  config?: AsciiCanvasConfig;
+}
+
+const { title, config } = Astro.props;
 ---
 
 <html>
@@ -19,9 +27,10 @@ const { title } = Astro.props;
   <body class="font-mono">
     <div class="absolute top-0 left-0 w-full h-full z-0">
       <AsciiCanvas
-        fontSize={36}
-        spawnRate={5}
-        speedRange={[0.1, 4]}
+        fontSize={config?.fontSize || 36}
+        spawnRate={config?.spawnRate || 5}
+        speedRange={config?.speedRange || [0.1, 4]}
+        hueRange={config?.hueRange || [0, 360]}
         client:load
       />
     </div>

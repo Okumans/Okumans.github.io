@@ -27,9 +27,9 @@ export function NavBar() {
           </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="/#">
+          <a href="/random">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Blog
+              Random
             </NavigationMenuLink>
           </a>
         </NavigationMenuItem>

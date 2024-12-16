@@ -19,10 +19,10 @@ interface Props {
   imageSrc?: string;
   imageWidth?: number;
   imageHeight?: number;
-  altText?: string;
+  alt?: string;
 }
 
-const { title, href, description, imageSrc, imageWidth, imageHeight, altText } =
+const { title, href, description, imageSrc, imageWidth, imageHeight, alt } =
   Astro.props;
 ---
 
@@ -43,7 +43,7 @@ const { title, href, description, imageSrc, imageWidth, imageHeight, altText } =
         !!imageSrc && (
           <ImagePopUp client:idle>
             <Image
-              alt={altText || "Blank"}
+              alt={alt || "Blank"}
               width={imageWidth || 0}
               height={imageHeight || 0}
               src={imageSrc}
@@ -69,7 +69,7 @@ const { title, href, description, imageSrc, imageWidth, imageHeight, altText } =
       imageSrc && (
         <ImagePopUp client:idle>
           <Image
-            alt={altText || "Blank"}
+            alt={alt || "Blank"}
             width={imageWidth || 0}
             height={imageHeight || 0}
             src={imageSrc}

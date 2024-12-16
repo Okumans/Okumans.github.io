@@ -4,6 +4,7 @@ interface AsciiCanvasProps {
   fontSize: number;
   spawnRate: number;
   speedRange: [number, number];
+  hueRange: [number, number];
 }
 
 interface FallingCharacter {
@@ -44,6 +45,7 @@ function randomCharacter(): string {
 function createNewCharacter(
   cols: number,
   speedRange: [number, number],
+  hueRange: [number, number],
   colPosition: number = -1,
 ): FallingCharacter {
   const col =
@@ -54,12 +56,12 @@ function createNewCharacter(
     row: 0,
     y: 0,
     speed: speedRange[0] + Math.random() * speedRange[1],
-    color: generateBrightColor(),
+    color: generateBrightColor(hueRange),
   };
 }
 
-function generateBrightColor(): string {
-  const baseHue = Math.random() * 360;
+function generateBrightColor(hueRange: [number, number] = [0, 360]): string {
+  const baseHue = hueRange[0] + Math.random() * hueRange[1];
   const saturation = Math.random() * 100; // 80-100%
   const lightness = 50 + Math.random() * 20; // 50-70%
   return `hsl(${baseHue}, ${saturation}%, ${lightness}%)`;
@@ -69,6 +71,7 @@ export function AsciiCanvas({
   fontSize,
   spawnRate,
   speedRange,
+  hueRange,
 }: AsciiCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
@@ -84,7 +87,7 @@ export function AsciiCanvas({
   const spawnMultipleCharacters = useCallback(
     (count: number, atPosition: number = -1) => {
       const newCharacters = Array.from({ length: count }, () =>
-        createNewCharacter(cols, speedRange, atPosition),
+        createNewCharacter(cols, speedRange, hueRange, atPosition),
       );
       setFallingCharacters((prev) => [...prev, ...newCharacters]);
     },
