@@ -1,6 +1,6 @@
 ---
 import "../styles/globals.css";
-import { NavBar } from "@/components/navbar.tsx";
+import { NavBar } from "@/components/navbar";
 import { AsciiCanvas } from "@/components/ascii-canvas";
 
 interface Props {
@@ -16,7 +16,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-  <body class="p-2 pt-0 font-mono">
+  <body class="font-mono">
     <div class="absolute top-0 left-0 w-full h-full z-0">
       <AsciiCanvas
         fontSize={36}
@@ -25,7 +25,9 @@ const { title } = Astro.props;
         client:load
       />
     </div>
-    <div class="z-10"><NavBar /></div>
+    <div class="fixed bg-black w-full bg-opacity-60 z-30">
+      <NavBar client:load />
+    </div>
     <slot />
   </body>
 </html>

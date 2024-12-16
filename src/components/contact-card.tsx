@@ -78,7 +78,7 @@ export const ContactCardWithLink: React.FC<ContactCardProps> = ({
             >
               <CardHeader className="w-full p-3 px-5">
                 <span className="flex gap-3 items-center justify-between">
-                  <span className="flex gap-3">
+                  <span className="flex h-full items-center gap-3">
                     {children}
                     <span className="flex flex-col">
                       <CardTitle>{title}</CardTitle>

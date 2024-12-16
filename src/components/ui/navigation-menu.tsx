@@ -42,7 +42,7 @@ const navigationMenuTriggerStyle = cva(
 );
 
 const navigationHeaderMenuTriggerStyle = cva(
-  "group inline-flex w-max items-center justify-center rounded-md bg-transparents px-4 py-10 lg:py-2 text-xl md:text-2xl lg:text-2xl font-bold transition-colors hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 transition-all ",
+  "group inline-flex w-max items-center justify-center rounded-md bg-transparents px-4 py-2 text-xl md:text-2xl lg:text-2xl font-bold transition-colors hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 transition-all ",
 );
 
 const NavigationMenuTrigger = React.forwardRef<

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 interface AsciiCanvasProps {
   fontSize: number;
@@ -73,7 +73,6 @@ export function AsciiCanvas({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
-  const [isMousePressed, setIsMousePressed] = useState(false);
   const [rows, setRows] = useState(0);
   const [cols, setCols] = useState(0);
   const [fallingCharacters, setFallingCharacters] = useState<
@@ -91,43 +90,6 @@ export function AsciiCanvas({
     },
     [cols],
   );
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    setIsMousePressed(true);
-    handleMouseMove(e);
-  };
-
-  const handleMouseUp = () => {
-    setIsMousePressed(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!isMousePressed) return;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = Math.floor((e.clientX - rect.left) / cellSize);
-    const y = Math.floor((e.clientY - rect.top) / cellSize);
-
-    if (x >= 0 && x < cols && y >= 0 && y < rows) {
-      const randomChar = randomCharacter();
-      const speed = 2 + Math.random() * 3;
-
-      setFallingCharacters((prev) => [
-        ...prev,
-        {
-          char: randomChar,
-          col: x,
-          row: y,
-          y: y * cellSize,
-          speed,
-          color: generateBrightColor(),
-        },
-      ]);
-    }
-  };
 
   const updateAndRender = useCallback(
     (timestamp: number) => {
@@ -238,9 +200,6 @@ export function AsciiCanvas({
         width: "100vw",
         height: "100vh",
       }}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
     />
   );
 }

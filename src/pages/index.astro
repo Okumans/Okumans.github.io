@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ProfileCardLarge from "@/components/profile-card-large.astro";
 import ProfileCardSmall from "@/components/profile-card-small.astro";
 import { ContactCard, ContactCardWithLink } from "@/components/contact-card";
+import ProjectCard from "@/components/project-card.astro";
 import { Toaster } from "@/components/ui/sonner";
 
 import { FaGithub } from "react-icons/fa";
@@ -11,14 +12,18 @@ import { SiGmail } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Jeerabhat S.">
   <div class="relative z-10 h-screen bg-black bg-opacity-20">
-    <main class="relative w-full px-6 sm:px-14 pt-10 flex flex-col gap-10">
-      <div class="text-center lg:text-left">
-        <h1 class="self-center text-xl sm:text-2xl font-medium">
-          Jeerabhat S.
-        </h1>
-        <h1 class="text-5xl sm:text-6xl font-semibold">PORTFOLIO</h1>
+    <main class="relative w-full px-6 sm:px-14 flex flex-col gap-10">
+      <div
+        class="flex w-full text-center lg:text-left h-screen items-center lg:justify-center"
+      >
+        <div class="w-full">
+          <h1 class="self-center text-xl sm:text-2xl font-medium">
+            Jeerabhat S.
+          </h1>
+          <h1 class="text-5xl sm:text-6xl font-semibold">PORTFOLIO</h1>
+        </div>
       </div>
 
       <div class="flex w-full gap-3 justify-center">
@@ -39,17 +44,17 @@ import { FaPhoneAlt } from "react-icons/fa";
             description="0918842784"
             targetContent="0918842784"
             className="bg-gradient-to-l from-green-900 to-slate-900 w-full"
-            client:load
+            client:idle
           >
             <FaPhoneAlt className="w-8 h-8" />
           </ContactCard>
+
           <ContactCardWithLink
             title="Github"
             href="https://github.com/okumans"
             description="Okumans"
-            className=""
             className="bg-gradient-to-r from-slate-900 to-black  w-full"
-            client:load
+            client:idle
           >
             <FaGithub className="w-8 h-8" />
           </ContactCardWithLink>
@@ -59,7 +64,7 @@ import { FaPhoneAlt } from "react-icons/fa";
             description="kaopancraft@gmail.com"
             targetContent="kaopancraft@gmail.com"
             className="bg-gradient-to-r from-[#4285F444] to-[#F2B50F66] w-full "
-            client:load
+            client:idle
           >
             <SiGmail className="w-8 h-8" />
           </ContactCard>
@@ -69,13 +74,62 @@ import { FaPhoneAlt } from "react-icons/fa";
             description="okumanss"
             href="https://www.instagram.com/okumanss/"
             className="bg-gradient-to-r from-[#833ab444] via-[#fd1d1d55] to-[#fcb04566] w-full "
-            client:load
+            client:idle
           >
             <FaInstagramSquare className="w-8 h-8" />
           </ContactCardWithLink>
         </div>
       </div>
+
+      <div class="flex flex-col gap-3">
+        <h1 class="text-2xl font-semibold">Projects</h1>
+        <ProjectCard
+          title="FaceRec"
+          description={`A real-time facial recognition system built with Python and PyQt5, designed to run on a Raspberry Pi 4. It includes a userfriendly GUI, real-time database and a web-based dashboard for comprehensive management and monitoring.`}
+          href="https://github.com/Okumans/FaceRec"
+          imageSrc="/Project-FaceRec.png"
+          imageWidth={41}
+          imageHeight={18}
+          altText="Project-FaceRec-Example"
+        />
+
+        <ProjectCard
+          title="MathForFun"
+          description={`A React-based web application designed to help users quickly find the right math formula to use, featuring a robust keyword search algorithm and detailed information for each formula.`}
+          href="https://github.com/Okumans/MathForFun"
+          imageSrc="/Project-MathForFun.png"
+          imageWidth={32}
+          imageHeight={17}
+          altText="Project-MathForFun-Example"
+        />
+
+        <ProjectCard
+          title="Calculator"
+          description={`A project designed to learn C++, featuring an extensive and easily extendable calculator. It supports three extendable formats: infix, prefix, and postfix, along with three built-in types: lambda, storage, and number.`}
+          imageSrc="/Project-Calculator.png"
+          imageWidth={10}
+          imageHeight={10}
+          altText="Project-Calculator-Example"
+          href="https://github.com/Okumans/CalculatorCppTUI"
+        />
+
+        <ProjectCard
+          title="EasyRunner"
+          description={`A Rust-based competitive programming code runner, built with caching and a testing system for an enhanced experience in the terminal (e.g., with Neovim).`}
+          imageSrc="/Project-Erunner.png"
+          imageWidth={10}
+          imageHeight={10}
+          altText="Project-EasyRunner-Example"
+          href="https://github.com/Okumans/EasyRunner"
+        />
+
+        <ProjectCard
+          title="Brookshear Assembler"
+          description={`A Rust-based tool that converts assembly language code into binary format for use with the joeledstrom Brookshear- Emulator. This assembler translates human-readable assembly code into machine code that can be executed by the emulator.`}
+          href="https://github.com/Okumans/brookshear_assembler"
+        />
+      </div>
     </main>
-    <Toaster client:load />
+    <Toaster client:idle />
   </div>
 </Layout>
