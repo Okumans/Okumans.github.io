@@ -3,11 +3,10 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 // import { Image } from "astro:assets";
 
 type ImagePopUpProps = {
-  title: string;
   children: React.ReactNode; // Accepts any valid React children
 };
 
-export const ImagePopUp: React.FC<ImagePopUpProps> = ({ title, children }) => {
+export const ImagePopUp: React.FC<ImagePopUpProps> = ({ children }) => {
   return (
     <Dialog>
       <DialogTrigger className="max-w-96 h-full w-full">
