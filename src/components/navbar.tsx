@@ -20,14 +20,14 @@ export function NavBar() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <a href="/#">
+          <a href="/#about-me">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               About me
             </NavigationMenuLink>
           </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="/#">
+          <a href="/random">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Random
             </NavigationMenuLink>
