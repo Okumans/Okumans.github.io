@@ -33,7 +33,10 @@ export const ContactCard: React.FC<ContactCardProps> = ({
       <Tooltip>
         <TooltipTrigger asChild>
           <Card
-            className={cn("w-fit hover:scale-105 transition-all", className)}
+            className={cn(
+              "w-fit hover:scale-[98%] transform ease-in-out transition-transform",
+              className,
+            )}
             onClick={() => {
               navigator.clipboard.writeText(targetContent);
               toast("Copied!", {
@@ -74,7 +77,10 @@ export const ContactCardWithLink: React.FC<ContactCardProps> = ({
         <Tooltip>
           <TooltipTrigger asChild>
             <Card
-              className={cn("w-fit hover:scale-105 transition-all", className)}
+              className={cn(
+                "w-fit hover:scale-[98%] transform ease-in-out transition-transform",
+                className,
+              )}
             >
               <CardHeader className="w-full p-3 px-5">
                 <span className="flex gap-3 items-center justify-between">
