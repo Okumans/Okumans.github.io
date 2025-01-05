@@ -62,7 +62,7 @@ function createNewCharacter(
 
 function generateBrightColor(hueRange: [number, number] = [0, 360]): string {
   const baseHue = hueRange[0] + Math.random() * hueRange[1];
-  const saturation = Math.random() * 100; // 80-100%
+  const saturation = Math.random() * 100;
   const lightness = 50 + Math.random() * 20; // 50-70%
   return `hsl(${baseHue}, ${saturation}%, ${lightness}%)`;
 }
@@ -162,7 +162,7 @@ export function AsciiCanvas({
   // Spawn new characters periodically
   useEffect(() => {
     const spawnInterval = setInterval(() => {
-      const spawnCount = 1 + Math.floor(Math.random() * spawnRate); // Spawn 1-7 characters
+      const spawnCount = 1 + Math.floor(Math.random() * spawnRate); // Spawn 1-$spawnRate characters
       spawnMultipleCharacters(spawnCount);
     }, 500);
 
@@ -195,14 +195,27 @@ export function AsciiCanvas({
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
       style={{
-        background: "#0A0A0A",
-        cursor: "pointer",
+        position: "relative",
         width: "100vw",
         height: "100vh",
+        overflow: "hidden",
       }}
-    />
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          background: "#0A0A0A",
+          cursor: "pointer",
+          width: `calc(110vw + ${fontSize}px)`,
+          height: `calc(110vh + ${fontSize}px)`,
+          overflow: "",
+        }}
+      />
+    </div>
   );
 }
