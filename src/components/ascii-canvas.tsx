@@ -76,11 +76,12 @@ export function AsciiCanvas({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
-  const [rows, setRows] = useState(0);
-  const [cols, setCols] = useState(0);
   const [fallingCharacters, setFallingCharacters] = useState<
     FallingCharacter[]
   >([]);
+
+  const [rows, setRows] = useState(0);
+  const [cols, setCols] = useState(0);
 
   const cellSize = fontSize + 4;
 
@@ -164,7 +165,7 @@ export function AsciiCanvas({
     const spawnInterval = setInterval(() => {
       const spawnCount = 1 + Math.floor(Math.random() * spawnRate); // Spawn 1-$spawnRate characters
       spawnMultipleCharacters(spawnCount);
-    }, 500);
+    }, 800);
 
     return () => clearInterval(spawnInterval);
   }, [spawnMultipleCharacters]);

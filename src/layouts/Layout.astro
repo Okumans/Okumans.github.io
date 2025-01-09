@@ -32,7 +32,7 @@ const { title, config } = Astro.props;
         spawnRate={config?.spawnRate || 5}
         speedRange={config?.speedRange || [0.1, 4]}
         hueRange={config?.hueRange || [0, 360]}
-        client:load
+        client:idle
       />
     </div>
     <div class="fixed bg-black w-full bg-opacity-60 z-30">
